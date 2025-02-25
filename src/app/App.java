@@ -9,9 +9,9 @@ public class App {
         int result =0;
 
         while (true) {
-        int num1 = 0;
-        int num2 = 0;
-        String input = "";
+        int num1;
+        int num2;
+        String input;
             if(isContinue){
                 num1 = result; //이전 결과값 넣기
                 System.out.println("첫번쨰 정수 :" + result);
@@ -27,7 +27,7 @@ public class App {
             try{
                 num1 = Integer.parseInt(input);
 
-                if(num1 >= 0){}
+                if(num1 >= 0){;}
                 else{
                     System.out.println("양의 정수만 입력 가능합니다 !!");
                     continue;
@@ -46,7 +46,7 @@ public class App {
             }
             try{
                 num2 = Integer.parseInt(input);
-                if(num2 >= 0){}
+                if(num2 >= 0){;}
                 else{
                     System.out.println("양의 정수만 입력 가능합니다 !!");
                     continue;}
