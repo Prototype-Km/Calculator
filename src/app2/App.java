@@ -85,6 +85,9 @@ public class App {
                 break;
             }else if(input.equalsIgnoreCase("exit")){
                 break;
+            }else{
+                System.out.println("다시 입력해주세요");
+                continue;
             }
         }
         System.out.print("첫번째 인덱스 삭제 >> ");
