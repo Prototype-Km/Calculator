@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import static app3.level2.App.exitCheck;
+
 
 //사칙연산 수행 결과값 반환 메소드,
 public class Calculator {
@@ -23,7 +23,13 @@ public class Calculator {
             results.add(result);
     }
 
-    //연산 수행 , 수행후 results 저장
+    // 첫번째 계산된거 삭제
+    public void removeResults() {
+        //선입선출
+        results.poll();
+    }
+
+        //연산 수행 , 수행후 results 저장
     //calculate
     //사칙 연산 수행, 결과 반환 메소드
     public Integer calculate(int num1,int num2, String oper){
@@ -50,17 +56,5 @@ public class Calculator {
                     throw new IllegalArgumentException("연산자를 잘못 입력하셨습니다.");
             }
         return result;
-    }
-
-
-
-
-
-    // 첫번째 계산된거 삭제
-    public void removeResults(){
-    //선입선출
-    results.poll();
-
-
     }
 }
