@@ -19,24 +19,23 @@ public class App {
         int result = 0;
 
         while (true) {
-            int num1 = 0;  //밑에 while문안에서 선언해버리면 지역변수라 숫자들을 못쓴다.
+            //밑에 while문안에서 선언해버리면 지역변수라 숫자들을 못쓴다.
+            int num1 = 0;
             int num2 = 0;
 
-            //************분기처리*********//
             //첫번째 숫자 입력
-            //이전값 안가져오는거
+            //isContinue >> 처음 계산. / false일때 들어옴
             if (!isContinue) {
                 num1 = getNum(br,message[0]);
             } else {
+//                isContinue =true 일떄
                 num1 = result;
                 System.out.println("이전 결과 >> " + num1);
             }
-            //************분기처리*********//
-            //두번째 숫자 입력
+            //두번째 숫자 양의 입력
             num2 = getNum(br,message[1]);
-            //************분기처리*********//
 
-            //연산자 받아서 검사 /
+            /*연산자 받아서 검사 / <연산자 입력>*/
             String oper = operCheck(br);
 
             //연산메소드
@@ -81,7 +80,9 @@ public class App {
         }
     }
 
-//    숫자를 입력하세요 ,
+/*
+ *****양의 정수 입력*****
+*/
     private static int getNum(BufferedReader br,String message) throws IOException{
         while (true) {
             try {
@@ -104,7 +105,10 @@ public class App {
             }
         }
     }
-    // exit
+
+    /*
+     *****사용자 입력값 "EXIT" CHECK *****
+     */
     private static void exitCheck(String input){
         if (input.equalsIgnoreCase("exit")) {
             System.out.println("프로그램을 종료합니다 ^_^ ! ");
@@ -112,13 +116,16 @@ public class App {
         }
     }
 
+    /*
+     *****연산자 체크, 정규식*****
+     */
     private static String operCheck(BufferedReader br) throws IOException{
         while (true) {
             try {
                 System.out.print("연산자를 입력해주세요 (+, -, *, /) , exit 종료 >>> ");
                 String oper = br.readLine();
 
-                //exit 검사
+             /*****사용자 입력값 "EXIT" CHECK /(exit 검사)*****/
                 exitCheck(oper);
 
                 //정규식 검사
