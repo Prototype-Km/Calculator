@@ -1,9 +1,8 @@
-package app3.level2;
+package com.example.calculator.level2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.Buffer;
 
 public class App {
 
@@ -80,9 +79,13 @@ public class App {
         }
     }
 
+<<<<<<< HEAD:src/app3/level2/App.java
 /*
  *****양의 정수 입력*****
 */
+=======
+//    입력받은 숫자.
+>>>>>>> dev:src/com/example/calculator/level2/App.java
     private static int getNum(BufferedReader br,String message) throws IOException{
         while (true) {
             try {
@@ -92,12 +95,12 @@ public class App {
                 //exit 체크 메소드
                 exitCheck(input);
 
-                int num2 = Integer.parseInt(input);
-                if (num2 < 0) {
+                int inputNum = Integer.parseInt(input);
+                if (inputNum < 0) {
                     System.out.print("양의 정수를 입력해주세요 >>> ");
                     continue;
                 }
-                return num2;
+                return inputNum;
             } catch (NumberFormatException ne) {
                 System.out.println("숫자만 입력해주세요! ");
             } catch (Exception e) {
@@ -137,6 +140,7 @@ public class App {
                 System.out.println("(+, -, *, /)중 입력해주세요. , exit 종료 >>> ");
             } catch (Exception e) {
                 System.out.println("예상치 못한 오류 발생. 다시 시도해주세요!!");
+
             }
         }
     }
