@@ -1,8 +1,7 @@
-package app3.level2;
+package com.example.calculator.level2;
 
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 
@@ -11,7 +10,7 @@ import java.util.Queue;
 public class Calculator {
 
     // 연산결과 저장하는 타입 필드
-    private static Queue<Integer> results = new LinkedList<>();
+    private final Queue<Integer> results = new LinkedList<>();
 
     //연산 결과를 저장하고 있는 컬렉션 필드에 직접 접근하지 못하도록 수정(캡슐화)
     public Queue<Integer> getResults(){
