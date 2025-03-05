@@ -79,13 +79,11 @@ public class App {
         }
     }
 
-<<<<<<< HEAD:src/app3/level2/App.java
+
 /*
  *****양의 정수 입력*****
 */
-=======
-//    입력받은 숫자.
->>>>>>> dev:src/com/example/calculator/level2/App.java
+
     private static int getNum(BufferedReader br,String message) throws IOException{
         while (true) {
             try {
