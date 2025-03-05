@@ -37,7 +37,7 @@ public class InputHandler {
         }
     }
 
-    /*연산자 받아서 enum 타입으로 변경*/
+    /*연산자 입력 받고 enum 타입으로 변경*/
     public static OperatorType operCheck(BufferedReader br) throws IOException{
         while (true) {
             try {
@@ -47,12 +47,12 @@ public class InputHandler {
                 //exit 검사
                 exitCheck(oper);
 
-                return OperatorType.fromString(oper);
+                //input값에 enum 값 비교
+                return OperatorType.findByOper(oper);
             } catch (IllegalArgumentException iea) {
                 System.out.println("(+, -, *, /)중 입력해주세요. , exit 종료 >>> ");
             } catch (Exception e) {
                 System.out.println("예상치 못한 오류 발생. 다시 시도해주세요!!");
-
             }
         }
     }

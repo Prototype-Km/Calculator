@@ -11,9 +11,11 @@ public class ArithmeticCalculator<T extends Number> {
 //    private T num1;
 //    private T num2;
 
-    // 연산결과 저장하는 타입 필드
+    // 연산결과 저장하는 타입 필드 (선입선출)
     private  Queue<T> results = new LinkedList<>();
-    private List<T> arResults = new ArrayList<>();
+
+//    리스트에 넣어도되고
+//    private List<T> arResults = new ArrayList<>();
 
     //연산 결과를 저장하고 있는 컬렉션 필드에 직접 접근하지 못하도록 수정(캡슐화)
     public Queue<T> getResults() {
@@ -50,7 +52,10 @@ public class ArithmeticCalculator<T extends Number> {
 
 
     //연산 수행 , 수행후 results 저장
-    //calculate
+    /*calculate ,
+            매개변수 num1,num2 = 정수 입력값
+*           OperatorType oper  : Enum값 (switch에서 Enum사용위해서)
+*/
     //사칙 연산 수행, 결과 반환 메소드
     public T calculate(T num1, T num2, OperatorType oper) {
         double result;
@@ -86,6 +91,7 @@ public class ArithmeticCalculator<T extends Number> {
             return (T) Float.valueOf((float) result);
         } else
             return (T) (Double.valueOf(result));
+
     }
 
     //조회 메소드 구현
@@ -104,6 +110,7 @@ public class ArithmeticCalculator<T extends Number> {
         results.stream().filter(n-> (n.doubleValue() % 2 ==0)).forEach(n->System.out.print("짝수만 출력 ->>>"+n+"\n"));
     }
 
+    /*결과값들 3배씩, 저장*/
     public void multiplyResultByThree(){
         results =
             results.stream()
@@ -112,6 +119,7 @@ public class ArithmeticCalculator<T extends Number> {
     }
 
 
+    /*최대값 출력*/
     public void maxNum() {
        double max =  results.stream().mapToDouble(v -> v.doubleValue())
                 .max().orElseThrow(()->new NoSuchElementException("결과가없습니다"));
@@ -119,6 +127,7 @@ public class ArithmeticCalculator<T extends Number> {
 
     }
 
+    /*총합*/
     public T sumResults(){
         return results.stream().reduce((n1,n2)->{
             return (T) Double.valueOf(n1.doubleValue() + n2.doubleValue());
